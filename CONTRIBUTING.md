@@ -100,51 +100,51 @@ Good contributions for this repository usually fall into one of these areas:
 
 ### Good First Issues
 
-1. **📋 [Create a Minimal PR Template](#)**  
-	Highlight the required checklist items: tests run, real sample manifest validation, signed-off commit, and documented behavior changes.
+1. **📋 [Create a Minimal PR Template](#1)**  
+	Create a standardized .github/pull_request_template.md file to enforce the contribution submission checklist.
 
-2. **✅ [Document Current Secret Patterns](#)**  
+2. **✅ [Document Current Secret Patterns](#2)**  
 	Document the explicit JSON/YAML structural paths targeted by the Secret extraction engine inside `DOCUMENTATION.md`.
 
-3. **📖 [Add a unit test to parse `test-manifests/`complex-pod.yaml](#)**  
+3. **📖 [Add a unit test to parse `test-manifests/`complex-pod.yaml](#3)**  
 	Verify extraction of `envFrom`, `volumes`, and `imagePullSecrets` references.
 
-4. **🧪 [Test Multi-Document YAML](#)**  
+4. **🧪 [Test Multi-Document YAML](#4)**  
 	Add a dedicated unit test in `test_parser.py` to verify secret extraction works correctly across multi-document YAML streams.
 
-5. **🎨 [Improve CLI Help Text](#)**  
+5. **🎨 [Improve CLI Help Text](#5)**  
 	Inject explicit command usage examples for single-file and directory scans into the CLI `--help` terminal output.
 
 
 ### Featured Issues
 
-1. **📊 [Add JSON Output](#)**  
+1. **📊 [Add JSON Output](#6)**  
 	Implement a machine-readable JSON output flag for automated CI/CD platform data processing.
 
-2. **🔕 [Add Summary-Only Mode](#)**  
+2. **🔕 [Add Summary-Only Mode](#7)**  
 	Add a `--quiet` / `-q` flag to suppress individual file tables and provide summary-only mode for cleaner pipeline logs.
 
-3. **♿ [Handle Invalid YAML Gracefully](#)**  
+3. **♿ [Handle Invalid YAML Gracefully](#8)**  
 	Catch `yaml.YAMLError` in the file parsing loop to gracefully warn and skip invalid files, and add an integration test for it.
 
-4. **🛣️ [Add Recursive Manifest Scanning](#)**  
+4. **🛣️ [Add Recursive Manifest Scanning](#9)**  
 	Update the directory processing engine to recursively scan nested sub-folders for YAML manifests.
 
 ### Advanced Issues
 
-1. **🧩 [Add ConfigMap Validation](#)**  
-	Use the same recursive discovery approachand live API validator to support ConfigMap reference and key-level verification.
+1. **🧩 [Add ConfigMap Validation](#10)**  
+	Use the same recursive discovery approach and live API validator to support ConfigMap reference and key-level verification.
 
-2. **🚢 [Add Helm Template Support](#)**  
+2. **🚢 [Add Helm Template Support](#11)**  
 	Integrate programmatic support to auto-render Helm charts using `helm template` before auditing references. 
 
-3. **📝 [Add SARIF or GitHub Annotations](#)**  
+3. **📝 [Add SARIF or GitHub Annotations](#12)**  
 	Add a CI-mode flag to emit GitHub workflow execution annotations or a SARIF log matrix for seamless PR integration.
 
-4. **⚙️ [Add a Manifest Preprocessor](#)**  
+4. **⚙️ [Add a Manifest Preprocessor](#13)**  
 	Refactor the discovery loop with a Manifest Preprocessor layer to dynamically extract inner Pod specs from any advanced or custom Kubernetes workload type.
 
-5. **🔌 [Add a kubectl Plugin Wrapper](#)**  
+5. **🔌 [Add a kubectl Plugin Wrapper](#14)**  
 	Configure a plugin wrapper distribution to allow Kuberef to be executed natively as a `kubectl ref` extension subcommand for teams that prefer kubectl integration.
 
 ### Debugging 
