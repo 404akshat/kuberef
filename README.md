@@ -3,7 +3,7 @@
 ![Python Version](https://img.shields.io/pypi/pyversions/kuberef)
 ![CI Status](https://github.com/hudazaan/kuberef/actions/workflows/ci.yaml/badge.svg)
 
-**Kuberef** is a lightweight, cloud-native CLI tool designed to validate Kubernetes Secret references before you deploy. It bridges the gap between static YAML manifests and your live cluster state, preventing "silent failures" caused by missing secrets or incorrect data keys.
+**Kuberef** is a lightweight, cloud-native CLI tool designed to audit Kubernetes Secret references before you deploy. It bridges the gap between static YAML manifests and your live cluster state, preventing "silent failures" caused by missing secrets or incorrect data keys.
 
 ---
 
@@ -107,7 +107,7 @@ kuberef <YOUR_FILE>.yaml --namespace <YOUR_NAMESPACE>
 
 **Example Output**: 
 
-`![Audit](./docs/images/audit-kuberef.png)`
+![Audit](https://raw.githubusercontent.com/hudazaan/kuberef/main/docs/images/audit-kuberef.png)
 
 ---
 
@@ -143,23 +143,30 @@ poetry run pytest
 
 Contributions are welcome!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b YOUR-BRANCH-NAME`)
-3. Run tests (`poetry run pytest`)
-4. Commit your Changes (`git commit -m 'your message'`)
-5. Push to the Branch (`git push origin YOUR-BRANCH-NAME`)
-6. Open a Pull Request
+To start contributing, please read [CONTRIBUTING.md](https://github.com/hudazaan/kuberef/blob/main/CONTRIBUTING.md).
+
+See [Issues](https://github.com/hudazaan/kuberef/issues) to get started. 
+
+---
+
+### 📚 Documentation
+
+Useful places to update while working on issues:
+
+- Getting started locally : **[Setup Guide](./README.md#-quick-start)** 
+- About the Project: **[DOCUMENTATION.md](https://github.com/hudazaan/kuberef/blob/main/DOCUMENTATION.md)**
+- Test Manifests: **[test-manifests/](https://github.com/hudazaan/kuberef/tree/main/test-manifests)**
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. [See LICENSE](./LICENSE) for more information.
 
 ---
 
 ## Author 
 
 Built with ❤️ by **Huda Naaz**
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---

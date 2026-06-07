@@ -4,8 +4,8 @@
 **Status:** Published & Actively Maintained  
 **Tech Stack:** Python, Kubernetes API, Docker, GitHub Actions, Poetry, Typer, Rich, PyYAML, PyPI   
 
-A pre-deployment validation tool built to eliminate CreateContainerConfigError by auditing Kubernetes secrets against live cluster states. Developed using Python, Typer and Rich for the CLI interface, PyYAML for manifest parsing, Poetry for package management, and published to PyPI for package distribution.
-It features a Recursive Discovery Engine using PyYAML which parses deep-nested specs in multi-document YAMLs, performing checks via live Kubernetes API. Optimized for DevOps workflows with a multi-stage Docker build for cross-platform compatibility, a GitHub Actions CI/CD pipeline for automated testing, serving as a "Shift-Left" validation gate that reduces debugging time in infrastructure misconfigurations.
+A pre-deployment auditing tool built to eliminate CreateContainerConfigError by verifying Kubernetes secrets against live cluster states. Developed using Python and Kubernetes API, utilized Typer and Rich for the CLI interface, PyYAML for manifest parsing, Poetry for package management, and published to PyPI for package distribution.
+It features a Recursive Discovery Engine using PyYAML which parses deep-nested specs in multi-document YAMLs, performing checks via live Kubernetes API. Optimized for DevOps workflows with a multi-stage Docker build for cross-platform compatibility, a GitHub Actions CI/CD pipeline for automated testing, and reduces debugging time in infrastructure misconfigurations.
 
 - **Problem:** I noticed a recurring issue in Kubernetes deployments where kubectl apply would succeed, but the containers would crash later and pods were stuck in CreateContainerConfigError due to referencing of a secret that doesn't exist or has the wrong key name. Kubernetes doesn't check these references until the container tries to start. That's because Kubernetes validates YAML syntax but doesn't check if secrets actually exist until the start of container. Thus, there's a gap between deployment time and runtime validation
 
