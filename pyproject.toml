@@ -18,7 +18,7 @@ dependencies = [
 
 [tool.poetry]
 name = "kuberef"
-version = "0.1.0"
+version = "0.1.14"
 description = "A Cloud-Native validator for Kubernetes Secret references."
 authors = ["hudazaan <naazhuda2000@gmail.com>"]
 packages = [{include = "kuberef", from = "src"}]
