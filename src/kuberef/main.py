@@ -170,6 +170,30 @@ def run_audit(files_to_scan: List[Path], namespace: str, v1: Any, quiet: bool = 
     return 1 if (global_failed > 0 or global_warnings > 0) else 0
 
 
+EXCLUDE_DIRS = {
+    ".git",
+    ".github",
+    ".venv",
+    "venv",
+    "node_modules",
+    "__pycache__",
+    "build",
+    "dist",
+    ".tox",
+    ".mypy_cache",
+    ".pytest_cache",
+}
+
+
+def get_yaml_files(target_path: Path) -> List[Path]:
+    """Recursively gets all YAML files, filtering out standard excluded directories."""
+    files = list(target_path.rglob("*.yaml")) + list(target_path.rglob("*.yml"))
+    return [
+        f for f in files
+        if not any(part in EXCLUDE_DIRS for part in f.relative_to(target_path).parts)
+    ]
+
+
 @app.command()
 def audit(
     path_str: str = typer.Argument(..., help="Path to K8s YAML file or directory"),
@@ -193,7 +217,7 @@ Examples:
 
     files_to_scan: List[Path] = []
     if target_path.is_dir():
-        files_to_scan = list(target_path.rglob("*.yaml")) + list(target_path.rglob("*.yml"))
+        files_to_scan = get_yaml_files(target_path)
     elif target_path.is_file():
         files_to_scan = [target_path]
     else:
@@ -223,7 +247,7 @@ Examples:
 
         def _on_change(changed_path: Path) -> None:
             if target_path.is_dir():
-                updated_files = list(target_path.rglob("*.yaml")) + list(target_path.rglob("*.yml"))
+                updated_files = get_yaml_files(target_path)
             else:
                 updated_files = [changed_path]
             run_audit(updated_files, namespace, v1, quiet=quiet, json_output=json_output)
